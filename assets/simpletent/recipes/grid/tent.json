@@ -1,6 +1,6 @@
 [
 	{
-		ingredientPattern: "_B_	LBL",
+		ingredientPattern: "_B_	LBL	HHH",
 		ingredients: {
 			"B": {
 				type: "block",
@@ -13,10 +13,11 @@
 				code: "game:cloth-*",
 				name: "color",
 				allowedVariants: ["plain", "mordant", "blue", "red", "yellow", "green", "purple", "pink", "orange", "brown", "gray", "black", "white"]
-			}
+			},
+			"H": { type: "block", code: "game:hay-normal-ud" }
 		},
 		width: 3,
-		height: 2,
+		height: 3,
 		output: { type: "block", code: "simpletent:tent-{wood}-{color}-ns" }
 	}
 ]

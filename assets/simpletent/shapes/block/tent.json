@@ -1011,6 +1011,162 @@
 					}
 				}
 			]
+		},
+		{
+			"name": "hay_bed",
+			"from": [
+				3,
+				0,
+				-10
+			],
+			"to": [
+				19,
+				2,
+				22
+			],
+			"rotationOrigin": [
+				20,
+				0,
+				22
+			],
+			"faces": {},
+			"rotationY": 5,
+			"children": [
+				{
+					"name": "hay_bed_head",
+					"from": [
+						0.0,
+						0,
+						0.0
+					],
+					"to": [
+						16.0,
+						2,
+						16.0
+					],
+					"rotationOrigin": [
+						8.0,
+						0,
+						8.0
+					],
+					"rotationY": 270,
+					"faces": {
+						"north": {
+							"texture": "#hayside1",
+							"uv": [
+								1,
+								8,
+								16,
+								10
+							]
+						},
+						"south": {
+							"texture": "#hayside1",
+							"uv": [
+								0,
+								4,
+								15,
+								6
+							]
+						},
+						"west": {
+							"texture": "#hayside2",
+							"uv": [
+								1,
+								12,
+								15,
+								14
+							]
+						},
+						"up": {
+							"texture": "#haytop2",
+							"uv": [
+								1,
+								1,
+								16,
+								15
+							],
+							"rotation": 180
+						},
+						"down": {
+							"texture": "#haybottom",
+							"uv": [
+								0,
+								1,
+								15,
+								15
+							]
+						}
+					}
+				},
+				{
+					"name": "hay_bed_foot",
+					"from": [
+						0.0,
+						0,
+						16.0
+					],
+					"to": [
+						16.0,
+						2,
+						32.0
+					],
+					"rotationOrigin": [
+						8.0,
+						0,
+						24.0
+					],
+					"rotationY": 270,
+					"faces": {
+						"north": {
+							"texture": "#hayside1",
+							"uv": [
+								0,
+								12,
+								15,
+								14
+							]
+						},
+						"south": {
+							"texture": "#hayside1",
+							"uv": [
+								1,
+								0,
+								16,
+								2
+							]
+						},
+						"east": {
+							"texture": "#hayside2",
+							"uv": [
+								1.6,
+								4,
+								15.6,
+								6
+							]
+						},
+						"up": {
+							"texture": "#haytop1",
+							"uv": [
+								0,
+								1,
+								15,
+								15
+							],
+							"rotation": 180
+						},
+						"down": {
+							"texture": "#haybottom",
+							"uv": [
+								1,
+								1,
+								16,
+								15
+							]
+						}
+					}
+				}
+			]
 		}
 	],
 	"animations": []
