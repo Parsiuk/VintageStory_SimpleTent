@@ -1,0 +1,64 @@
+name: Build and Release Mod
+
+on:
+  push:
+    tags:
+      - "v*"  # Only runs when a new tag like v1.0 is pushed
+  workflow_dispatch:  # Allows manual triggering
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Read versions from modinfo.json
+        run: |
+          echo "VERSION=$(jq -r .version modinfo.json)" >> "$GITHUB_ENV"
+          echo "GAME_VERSION=$(jq -r .dependencies.game modinfo.json)" >> "$GITHUB_ENV"
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Download game libraries to compile against
+        run: |
+          mkdir -p "$RUNNER_TEMP/vintagestory"
+          curl -fsSL "https://cdn.vintagestory.at/gamefiles/stable/vs_server_linux-x64_${GAME_VERSION}.tar.gz" \
+            | tar -xz -C "$RUNNER_TEMP/vintagestory"
+          echo "VINTAGE_STORY=$RUNNER_TEMP/vintagestory" >> "$GITHUB_ENV"
+
+      - name: Create ZIP file
+        run: python3 tools/build.py
+
+      - name: Upload ZIP as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: SimpleTent
+          path: dist/SimpleTent_${{ env.VERSION }}.zip
+          if-no-files-found: error
+
+  release:
+    needs: build
+    if: startsWith(github.ref, 'refs/tags/')  # Releases require a tag; manual runs only build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download ZIP from artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: SimpleTent
+          path: dist
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/SimpleTent_*.zip
+          fail_on_unmatched_files: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
