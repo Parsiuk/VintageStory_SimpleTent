@@ -39,6 +39,14 @@
 			"rotationOrigin": [8, 33, 8],
 			"faces": {},
 			"rotationZ": 145
+		},
+		{
+			"name": "hay_bed",
+			"from": [3, 0, -10],
+			"to": [19, 2, 22],
+			"rotationOrigin": [20, 0, 22],
+			"faces": {},
+			"rotationY": 5
 		}
 	],
 	"animations": []

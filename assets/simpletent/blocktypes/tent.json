@@ -1,11 +1,14 @@
 {
 	code: "tent",
-	class: "Block",
+	class: "simpletent.Tent",
+	entityClass: "simpletent.Tent",
 	behaviors: [
 		{ name: "Multiblock", properties: { sizex: 3, sizey: 2, sizez: 3, cposition: { x: 1, y: 0, z: 1 } } },
 		{ name: "NWOrientable" }
 	],
 	attributes: {
+		sleepEfficiency: 0.58333333,
+		bedPose: { x: 0.6025, y: 0.125, z: 0.4278, yawDeg: 5 },
 		handbook: {
 			groupBy: ["tent-*"]
 		}
@@ -23,11 +26,21 @@
 	texturesByType: {
 		"*-plain-*": {
 			linen: { base: "game:block/cloth/linen/normal1" },
-			wood: { base: "game:block/wood/planks/{wood}1" }
+			wood: { base: "game:block/wood/planks/{wood}1" },
+			haytop1: { base: "game:block/hay/bed/top1" },
+			haytop2: { base: "game:block/hay/bed/top2" },
+			hayside1: { base: "game:block/hay/bed/side1" },
+			hayside2: { base: "game:block/hay/bed/side2" },
+			haybottom: { base: "game:block/hay/bed/bottom" }
 		},
 		"*": {
 			linen: { base: "game:block/cloth/linen/{color}" },
-			wood: { base: "game:block/wood/planks/{wood}1" }
+			wood: { base: "game:block/wood/planks/{wood}1" },
+			haytop1: { base: "game:block/hay/bed/top1" },
+			haytop2: { base: "game:block/hay/bed/top2" },
+			hayside1: { base: "game:block/hay/bed/side1" },
+			hayside2: { base: "game:block/hay/bed/side2" },
+			haybottom: { base: "game:block/hay/bed/bottom" }
 		}
 	},
 	blockmaterial: "Cloth",

@@ -1,9 +1,9 @@
 {
-	"type": "content",
+	"type": "code",
 	"modid": "simpletent",
 	"name": "Simple Tent",
 	"authors": ["Parsiuk"],
-	"description": "Adds a craftable, decorative tent made from cloth and support beams.",
+	"description": "Adds a craftable tent you can sleep in and pick back up, made from cloth, support beams and hay.",
 	"version": "1.0.0",
 	"dependencies": {
 		"game": "1.22.7"
