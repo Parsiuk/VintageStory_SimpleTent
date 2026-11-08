@@ -1,0 +1,22 @@
+[
+	{
+		ingredientPattern: "_B_	LBL",
+		ingredients: {
+			"B": {
+				type: "block",
+				code: "game:supportbeam-*",
+				name: "wood",
+				allowedVariants: ["birch", "oak", "maple", "pine", "acacia", "kapok", "baldcypress", "larch", "redwood", "ebony", "walnut", "purpleheart", "aged"]
+			},
+			"L": {
+				type: "item",
+				code: "game:cloth-*",
+				name: "color",
+				allowedVariants: ["plain", "mordant", "blue", "red", "yellow", "green", "purple", "pink", "orange", "brown", "gray", "black", "white"]
+			}
+		},
+		width: 3,
+		height: 2,
+		output: { type: "block", code: "simpletent:tent-{wood}-{color}-ns" }
+	}
+]

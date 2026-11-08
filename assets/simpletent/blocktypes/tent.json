@@ -1,0 +1,68 @@
+{
+	code: "tent",
+	class: "Block",
+	behaviors: [
+		{ name: "Multiblock", properties: { sizex: 3, sizey: 2, sizez: 3, cposition: { x: 1, y: 0, z: 1 } } },
+		{ name: "NWOrientable" }
+	],
+	attributes: {
+		handbook: {
+			groupBy: ["tent-*"]
+		}
+	},
+	variantgroups: [
+		{ code: "wood", states: ["aged"], loadFromProperties: "game:block/wood" },
+		{ code: "color", states: ["plain", "mordant", "blue", "red", "yellow", "green", "purple", "pink", "orange", "brown", "gray", "black", "white"] },
+		{ code: "orientation", states: ["ns", "we"] }
+	],
+	creativeinventory: { "general": ["*-ns"], "decorative": ["*-ns"] },
+	shapeByType: {
+		"*-ns": { base: "block/tent", rotateY: 0 },
+		"*-we": { base: "block/tent", rotateY: 90 }
+	},
+	texturesByType: {
+		"*-plain-*": {
+			linen: { base: "game:block/cloth/linen/normal1" },
+			wood: { base: "game:block/wood/planks/{wood}1" }
+		},
+		"*": {
+			linen: { base: "game:block/cloth/linen/{color}" },
+			wood: { base: "game:block/wood/planks/{wood}1" }
+		}
+	},
+	blockmaterial: "Cloth",
+	drawtype: "json",
+	sideopaque: { all: false },
+	sidesolid: { all: false },
+	emitSideAo: { all: false },
+	lightAbsorption: 0,
+	rainPermeable: true,
+	resistance: 1,
+	maxStackSize: 1,
+	materialDensity: 200,
+	collisionbox: null,
+	combustibleProps: {
+		burnTemperature: 400,
+		burnDuration: 15
+	},
+	sounds: {
+		place: "game:block/cloth",
+		break: "game:block/cloth",
+		hit: "game:block/cloth",
+		walk: "game:walk/cloth"
+	},
+	heldTpIdleAnimation: "holdunderarm",
+	guiTransform: {
+		origin: { x: 0.5, y: 1, z: 0.5 },
+		scale: 0.55
+	},
+	tpHandTransform: {
+		translation: { x: -0.9, y: -0.3, z: -0.9 },
+		rotation: { x: -80, y: -37, z: 17 },
+		scale: 0.2
+	},
+	groundTransform: {
+		origin: { x: 0.5, y: 0, z: 0.5 },
+		scale: 1
+	}
+}
